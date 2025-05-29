@@ -195,3 +195,7 @@ db.books.find({},{_id:false,title:1,author:1,price:1}).sort({price:1})
 
 //descending order
 db.books.find({},{_id:false,title:1,author:1,price:1}).sort({price:-1})
+
+//Use the `limit` and `skip` methods to implement pagination (5 books per page)
+//Page 1
+db.books.find({},{_id:false,title:1,author:1,price:1}).sort({price:1}).limit(5).skip(0)
