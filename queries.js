@@ -163,3 +163,6 @@ db.books.find({genre:"Mystery"})
 
 //Find books published after a certain year
 db.books.find({published_year: {$gt: 2010}})
+
+//Find books by a specific author
+db.books.find({author: "Matt Haig"})
