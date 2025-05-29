@@ -178,3 +178,6 @@ db.books.find({ title: "The Midnight Library" })
 
 //Delete a book by its title
 db.books.deleteOne({ title: "The Midnight Library" })
+
+//Verify deletion
+db.books.find({ title: "The Midnight Library" })
