@@ -181,3 +181,7 @@ db.books.deleteOne({ title: "The Midnight Library" })
 
 //Verify deletion
 db.books.find({ title: "The Midnight Library" })
+
+
+//find books that are both in stock and published after 2010
+db.books.find({$and:[{in_stock:true},{published_year:{$gt:2010}}]})
