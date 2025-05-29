@@ -172,3 +172,9 @@ db.books.updateOne(
   { title: "The Midnight Library" }, // Filter to find the book
   { $set: { price: 14.50 } }        // Update the price field
 )
+
+//Verify update
+db.books.find({ title: "The Midnight Library" })
+
+//Delete a book by its title
+db.books.deleteOne({ title: "The Midnight Library" })
