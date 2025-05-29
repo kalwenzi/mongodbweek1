@@ -432,3 +432,6 @@ db.books.createIndex({ title: 1 })
 
 //compound index by author and published year (latest year first)
 db.books.createIndex({ author: 1, published_year: -1 })
+
+//checking execution stats for a query after indexing
+db.books.find({ title: "The Midnight Library" }).explain("executionStats")
