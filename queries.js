@@ -157,3 +157,6 @@ db.books.insertMany([
     publisher: "Alfred A. Knopf"
   }
 ])
+
+//Find book by genre
+db.books.find({genre:"Mystery"})
