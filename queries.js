@@ -205,3 +205,14 @@ db.books.find({},{_id:false,title:1,author:1,price:1}).sort({price:1}).limit(5).
 
 //page 3
 db.books.find({},{_id:false,title:1,author:1,price:1}).sort({price:1}).limit(5).skip(10)
+
+
+//Create an aggregation pipeline to calculate the average price of books by genre
+db.books.aggregate([
+  {
+    $group: {
+      _id: "$genre", // Group by genre
+      averagePrice: { $avg: "$price" } // Calculate average price
+    }
+  }
+])
