@@ -406,3 +406,23 @@ db.books.insertMany([
     pages: 334,
     publisher: "Random House"
   }])
+
+//Implement a pipeline that groups books by publication decade and counts them
+db.books.aggregate([
+    {
+        $group: {
+        _id: { $floor: { $divide: ["$published_year", 10] } }, // Group by decade
+        bookCount: { $sum: 1 } // Count the number of books in each decade
+        }
+    },
+    {
+        $project: {
+        decade: { $multiply: ["$_id", 10] }, // Convert decade back to a year
+        bookCount: 1,
+        _id: 0 // Exclude the default _id field
+        }
+    },
+    {
+        $sort: { decade: 1 } // Sort by decade in ascending order
+    }
+])
