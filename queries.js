@@ -166,3 +166,9 @@ db.books.find({published_year: {$gt: 2010}})
 
 //Find books by a specific author
 db.books.find({author: "Matt Haig"})
+
+//Update the price of a specific book
+db.books.updateOne(
+  { title: "The Midnight Library" }, // Filter to find the book
+  { $set: { price: 14.50 } }        // Update the price field
+)
