@@ -426,3 +426,6 @@ db.books.aggregate([
         $sort: { decade: 1 } // Sort by decade in ascending order
     }
 ])
+
+//Index by title
+db.books.createIndex({ title: 1 })
