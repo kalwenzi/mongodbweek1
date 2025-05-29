@@ -202,3 +202,6 @@ db.books.find({},{_id:false,title:1,author:1,price:1}).sort({price:1}).limit(5).
 
 //Page 2
 db.books.find({},{_id:false,title:1,author:1,price:1}).sort({price:1}).limit(5).skip(5)
+
+//page 3
+db.books.find({},{_id:false,title:1,author:1,price:1}).sort({price:1}).limit(5).skip(10)
