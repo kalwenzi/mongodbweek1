@@ -1,8 +1,31 @@
+// ### Task 1: MongoDB Setup
+// - Install MongoDB on your local machine OR set up a free MongoDB Atlas cluster
+// - Create a new database called `plp_bookstore`
+// - Create a collection called `books`
+
 // Creating db
 use plp_bookstore
 
 // Creating collection
 db.createCollection("books")
+
+// ### Task 2: Basic CRUD Operations
+// - Use the provided `insert_books.js` script to insert at least 10 book documents into your collection
+// - Each book should have the following fields:
+//   - `title` (string)
+//   - `author` (string)
+//   - `genre` (string)
+//   - `published_year` (number)
+//   - `price` (number)
+//   - `in_stock` (boolean)
+//   - `pages` (number)
+//   - `publisher` (string)
+// - Write MongoDB queries to:
+//   - Find all books in a specific genre
+//   - Find books published after a certain year
+//   - Find books by a specific author
+//   - Update the price of a specific book
+//   - Delete a book by its title
 
 //Adding books
 db.books.insertMany([
@@ -182,6 +205,7 @@ db.books.deleteOne({ title: "The Midnight Library" })
 //Verify deletion
 db.books.find({ title: "The Midnight Library" })
 
+//### Task 3: Advanced Queries
 
 //find books that are both in stock and published after 2010
 db.books.find({$and:[{in_stock:true},{published_year:{$gt:2010}}]})
@@ -207,6 +231,7 @@ db.books.find({},{_id:false,title:1,author:1,price:1}).sort({price:1}).limit(5).
 db.books.find({},{_id:false,title:1,author:1,price:1}).sort({price:1}).limit(5).skip(10)
 
 
+//### Task 4: Aggregation Pipeline
 //Create an aggregation pipeline to calculate the average price of books by genre
 db.books.aggregate([
   {
@@ -427,6 +452,8 @@ db.books.aggregate([
     }
 ])
 
+
+//### Task 5: Indexing
 //Index by title
 db.books.createIndex({ title: 1 })
 
