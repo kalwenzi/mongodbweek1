@@ -160,3 +160,6 @@ db.books.insertMany([
 
 //Find book by genre
 db.books.find({genre:"Mystery"})
+
+//Find books published after a certain year
+db.books.find({published_year: {$gt: 2010}})
